@@ -88,7 +88,27 @@ def chamadasUrgentes():
       print(chamado)
 
 def abrirChamado():
-  titulo_chamado = input("escreva")
+  titulo_chamado = input("escreva o problema: ")
+  prioridade_chamado = input("escreva a prioridade do probelma (Crítica/Alta/Média/Baixa): ")
+  status_chamado = input("escreva o status da chamada (Aberto/Fechado/Em Progresso): ")
+  usuario_chamado = input("escreva o seu nome: ")
+
+  novo_chamado = {
+    "id": len(chamados) + 1,
+    "titulo": titulo_chamado,
+    "prioridade": prioridade_chamado,
+    "status": status_chamado,
+    "usuario": usuario_chamado
+  }
+
+  chamados.append(novo_chamado)
+
+def resolverChamado():
+  pesquisarUsuario = input("Digite o nome do usuario para resolver o seu chamado: ")
+  for chamado in chamados :
+    if chamado["usuario"] == pesquisarUsuario:
+      chamado["status"] == "Fechado"
+  
 
 while True:
   print("digite: 8 para - ver todas as opções ")
@@ -105,3 +125,9 @@ while True:
 
   elif escolha == 4:
     chamadasUrgentes()
+
+  elif escolha == 5:
+    abrirChamado()
+
+  elif escolha ==6:
+    resolverChamado()
