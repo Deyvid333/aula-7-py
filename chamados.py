@@ -67,19 +67,19 @@ print("digite: 0 para - sair do sistema ")
 def pesquisarPorUsuario():
   pesquisarUsuario = input("Digite o nome do usuario para averiguar o seu chamado: ")
   for chamado in chamados :
-    if chamado["usuario"] == pesquisarUsuario:
+    if  pesquisarUsuario.lower() in chamado["usuario"].lower():
       print(chamado)
 
 def pesquisarPorPrioridade():
   pesquisa = input("Digite a prioridade que voce deseja filtrar (Crítica/Alta/Média/Baixa): ")
   for chamado in chamados :
-    if chamado["prioridade"] == pesquisa:
+    if chamado["prioridade"].lower() == pesquisa.lower():
       print(chamado)
 
 def pesquisarPorStatus():
   pesquisa = input("Digite o status que voce deseja filtrar(Aberto/Em progresso/Fechado): ")
   for chamado in chamados :
-    if chamado["status"] == pesquisa:
+    if chamado["status"].lower() == pesquisa.lower():
       print(chamado)
 
 def chamadasUrgentes():
@@ -105,7 +105,7 @@ def abrirChamado():
 def resolverChamado():
   pesquisarUsuario = input("Digite o nome do usuario para resolver o seu chamado: ")
   for chamado in chamados :
-    if chamado["usuario"] == pesquisarUsuario:
+    if chamado["usuario"].lower() == pesquisarUsuario.lower():
       chamado["status"] = "Em Progresso"
       print(chamado)
 
@@ -113,7 +113,7 @@ def resolverChamado():
 def fecharChamado():
   pesquisarUsuario = input("Digite o nome do usuario para fechar o seu chamado: ")
   for chamado in chamados :
-    if chamado["usuario"] == pesquisarUsuario:
+    if chamado["usuario"].lower() == pesquisarUsuario.lower():
       chamado["status"] = "Fechado"
       print(chamado)
 
@@ -162,3 +162,6 @@ while True:
 
   elif escolha == 0 :
     break
+
+  else:
+    print("Opção invalida digite novamente uma opção que seja valida da lista")
