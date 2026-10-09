@@ -100,14 +100,36 @@ def abrirChamado():
     "status": status_chamado,
     "usuario": usuario_chamado
   }
-
   chamados.append(novo_chamado)
 
 def resolverChamado():
   pesquisarUsuario = input("Digite o nome do usuario para resolver o seu chamado: ")
   for chamado in chamados :
     if chamado["usuario"] == pesquisarUsuario:
-      chamado["status"] == "Fechado"
+      chamado["status"] = "Em Progresso"
+      print(chamado)
+
+
+def fecharChamado():
+  pesquisarUsuario = input("Digite o nome do usuario para fechar o seu chamado: ")
+  for chamado in chamados :
+    if chamado["usuario"] == pesquisarUsuario:
+      chamado["status"] = "Fechado"
+      print(chamado)
+
+
+def mostrarEscolhas():
+  print(" < Lista De Opçoes De Chamados > ")
+
+  print("digite: 1 para - pesquisar chamados por usuarios ")
+  print("digite: 2 para - pesquisar chamados por prioridade ")
+  print("digite: 3 para - pesquisar chamados por status ")
+  print("digite: 4 para - pesquisar chamados por urgentes ")
+  print("digite: 5 para - abrir um chamado ")
+  print("digite: 6 para - resolver um chamado ")
+  print("digite: 7 para - fechar um chamado ")
+  print("digite: 8 para - ver todas as opções ")
+  print("digite: 0 para - sair do sistema ")
   
 
 while True:
@@ -120,14 +142,23 @@ while True:
   elif escolha == 2 :
     pesquisarPorPrioridade()
 
-  elif escolha == 3:
+  elif escolha == 3 :
     pesquisarPorStatus()
 
-  elif escolha == 4:
+  elif escolha == 4 :
     chamadasUrgentes()
 
-  elif escolha == 5:
+  elif escolha == 5 :
     abrirChamado()
 
-  elif escolha ==6:
+  elif escolha == 6 :
     resolverChamado()
+
+  elif escolha == 7 :
+    fecharChamado()
+
+  elif escolha == 8 :
+    mostrarEscolhas()
+
+  elif escolha == 0 :
+    break
